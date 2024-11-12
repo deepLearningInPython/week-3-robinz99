@@ -44,11 +44,10 @@ def convolve_1d(input_array, kernel_array):
     # Then fill the cells in the array with a loop.
     output_size = compute_output_size_1d(input_array, kernel_array)
     output = np.zeros(output_size)
-    kernel_flipped = np.flip(kernel_array)
     
     for i in range(output_size):
         input_slice = input_array[i:i + len(kernel_array)]
-        output[i] = np.sum(input_slice * kernel_flipped)
+        output[i] = np.sum(input_slice * kernel_array)
         
     return output
 
